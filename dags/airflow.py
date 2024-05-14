@@ -7,10 +7,12 @@ from airflow.operators.python_operator import PythonOperator
 from airflow.exceptions import AirflowFailException
 
 default_args = {
-    "owner" : "airflow",
+    "owner" : "riif",
     "start_date" : datetime(2024, 5, 11, 10, 00, 00),
     "retries" : 1,
-    "retry_delay" :timedelta(minutes=1)
+    "retry_delay" :timedelta(minutes=1),
+    "email": [""],
+    "email_on_failure" : True
 }
 
 def check_connection_db_postgres():
